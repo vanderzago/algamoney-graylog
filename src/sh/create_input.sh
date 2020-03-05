@@ -3,21 +3,20 @@
 USER=$1
 PASS=$2
 URL=$3
-
-export RD_URL=$URL
-export RD_USER=$USER
-export RD_PASSWORD=$PASS
+APP=$4
 
 LOOP=0
 RETRIES=10
 while [[ ${LOOP} -eq 0 && $RETRY -lt ${RETRIES} ]]
 do
-    curl --fail $RD_URL; Res=$?
+    curl --fail $URL; Res=$?
 
     if [[ $Res -eq 0 ]]
-    then       
+    then
+        echo $APP is up
         LOOP=1
     else
+        echo $APP
         sleep 30
         RETRY=$((RETRY+1))
     fi
