@@ -1,4 +1,4 @@
-FROM graylog/graylog:3.2
+FROM graylog/graylog:3.2.3
 
 LABEL maintainer="Vander Zago"
 
